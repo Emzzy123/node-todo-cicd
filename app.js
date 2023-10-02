@@ -31,7 +31,7 @@ app.get('/todo', function (req, res) {
         });
     })
 
-    /* Adding an item to the to do list */
+    /* Adding an item to the todo list */
     .post('/todo/add/', function (req, res) {
         // Escapes HTML special characters in attribute values as HTML entities
         let newTodo = sanitizer.escape(req.body.newtodo);
@@ -41,7 +41,7 @@ app.get('/todo', function (req, res) {
         res.redirect('/todo');
     })
 
-    /* Deletes an item from the to do list */
+    /* Deletes an item from the todo list */
     .get('/todo/delete/:id', function (req, res) {
         if (req.params.id != '') {
             todolist.splice(req.params.id, 1);
@@ -75,7 +75,7 @@ app.get('/todo', function (req, res) {
         }
         res.redirect('/todo');
     })
-    /* Redirects to the to do list if the page requested is not found */
+    /* Redirects to the todo list if the page requested is not found */
     .use(function (req, res, next) {
         res.redirect('/todo');
     })
